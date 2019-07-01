@@ -35,7 +35,7 @@ class DecoderBlock(nn.Module):
             )
         else:
             self.block = nn.Sequential(
-                nn.Upsample(scale_factor=2, mode='bilinear'),
+                nn.Upsample(scale_factor=2, mode='bilinear', align_corners=True),
                 ConvRelu(in_channels, middle_channels),
                 ConvRelu(middle_channels, out_channels),
             )
